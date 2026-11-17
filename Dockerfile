@@ -14,6 +14,7 @@ COPY cofa/ cofa/
 COPY config/ config/
 COPY reports/ reports/
 COPY --from=web /web/dist web/dist
+RUN mkdir -p /data && chown 1000:1000 /data
 ENV COFA_RUN=/data/console PORT=8080
 EXPOSE 8080
 USER 1000

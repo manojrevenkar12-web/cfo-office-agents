@@ -59,7 +59,7 @@ jobs:
       - run: docker build -t cfo-office-agents .
       - name: the container serves the console and the API
         run: |
-          docker run -d -p 8080:8080 --name c cfo-office-agents
-          for i in $(seq 1 30); do curl -sf localhost:8080/api/health && break; sleep 2; done
+          docker run -d -p 8080:8080 --name console cfo-office-agents
+          for i in $(seq 1 45); do curl -sf localhost:8080/api/health && break; sleep 2; done || (docker logs console; exit 1)
           curl -sf localhost:8080/api/review | python3 -c "import json,sys; print(len(json.load(sys.stdin)['items']), 'items in review')"
-          curl -sf localhost:8080/ | grep -q '<div id="root">'
+          curl -sf localhost:8080/ | grep -q "<div id=\"root\">" || (docker logs console; exit 1)
