@@ -77,7 +77,7 @@ else's invoice. Every design runs on its own copy of the same ERP, bank files an
 - **The reader alone**: 100.0% of 107 advices read exactly (every line, amount and
   deduction) and 100.0% of 196 reply intents. 9 of
   9 AI-addressed passages were flagged and never used as facts.
-- **Traces**: a payment decision takes 7.6 ms median and 5.97 MCP tool
+- **Traces**: a payment decision takes 6.8 ms median and 5.97 MCP tool
   calls on average (the offline reader uses no tokens; with Claude each read's tokens are on its span).
 - **Reuse**: collections is 135 lines on a 230-line platform; only
   37% of what it runs is new.

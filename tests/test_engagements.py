@@ -50,3 +50,16 @@ def test_a_second_run_with_the_same_keys_posts_nothing_new(world, tmp_path):
     assert len(erp.postings()) == before
     assert json.dumps(CashApplication.engagement)
     shutil.rmtree(tmp_path / "p")
+
+
+def test_an_advice_the_reader_cannot_read_goes_to_a_person():
+    import asyncio
+
+    from cofa.engagements.cash_application import CashApplication
+
+    class Belt:
+        async def call(self, *a, **k):
+            return {}
+    ca = CashApplication(Belt(), None, None, None, {"cash_application": {}}, "agent")
+    d = asyncio.run(ca._from_lines({"amount_cents": 100}, "2026-10-01", [], ["10001"], []))
+    assert d.action == "review" and "could not be read" in d.reason

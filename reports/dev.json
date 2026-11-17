@@ -122,24 +122,24 @@
     "review": 142
    },
    "decision_counts": {
-    "wait": 0,
     "review": 202,
+    "wait": 0,
     "post": 364
    },
    "tool_calls": 1042,
-   "seconds": 4.3,
+   "seconds": 4.1,
    "traces": {
     "cash": {
      "decisions": 566,
-     "median_ms": 1.407,
-     "p95_ms": 3.084,
+     "median_ms": 1.336,
+     "p95_ms": 3.326,
      "tool_calls_per_decision": 0.89,
      "tokens_per_decision": 0.0
     },
     "replies": {
      "decisions": 142,
-     "median_ms": 1.46,
-     "p95_ms": 2.126,
+     "median_ms": 1.262,
+     "p95_ms": 1.747,
      "tool_calls_per_decision": 0.0,
      "tokens_per_decision": 0.0
     }
@@ -242,24 +242,24 @@
     "review": 70
    },
    "decision_counts": {
-    "wait": 28,
     "review": 1,
+    "wait": 28,
     "post": 565
    },
    "tool_calls": 2009,
-   "seconds": 6.5,
+   "seconds": 5.8,
    "traces": {
     "cash": {
      "decisions": 594,
-     "median_ms": 1.764,
-     "p95_ms": 12.223,
+     "median_ms": 1.568,
+     "p95_ms": 10.112,
      "tool_calls_per_decision": 2.18,
      "tokens_per_decision": 0.0
     },
     "replies": {
      "decisions": 70,
-     "median_ms": 1.695,
-     "p95_ms": 3.031,
+     "median_ms": 1.318,
+     "p95_ms": 2.093,
      "tool_calls_per_decision": 0.0,
      "tokens_per_decision": 0.0
     }
@@ -355,24 +355,24 @@
     "paid_not_found": 4
    },
    "decision_counts": {
-    "wait": 29,
     "review": 22,
+    "wait": 29,
     "post": 544
    },
    "tool_calls": 4519,
-   "seconds": 11.2,
+   "seconds": 9.5,
    "traces": {
     "cash": {
      "decisions": 595,
-     "median_ms": 7.607,
-     "p95_ms": 21.691,
+     "median_ms": 6.849,
+     "p95_ms": 16.458,
      "tool_calls_per_decision": 5.97,
      "tokens_per_decision": 0.0
     },
     "replies": {
      "decisions": 47,
-     "median_ms": 16.087,
-     "p95_ms": 26.67,
+     "median_ms": 11.602,
+     "p95_ms": 19.271,
      "tool_calls_per_decision": 5.51,
      "tokens_per_decision": 0.0
     }
@@ -392,7 +392,7 @@
  },
  "reuse": {
   "platform_loc": 230,
-  "cash_application_loc": 246,
+  "cash_application_loc": 248,
   "collections_loc": 135,
   "collections_new_share": 0.37
  },

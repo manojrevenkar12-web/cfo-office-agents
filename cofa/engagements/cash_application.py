@@ -209,6 +209,8 @@ class CashApplication:
                         names[0]["kunnr"] if names else None, evidence=[f"name suggests {n['kunnr']} {n['name']}" for n in names])
 
     async def _from_lines(self, e, day, lines: list[AdviceLine], scope, ev) -> Decision:
+        if not lines:
+            return Decision("review", "the payment advice could not be read into lines", scope[0] if scope else None, evidence=ev)
         docs = [ln.doc for ln in lines]
         its = await self.items(docs)
         missing = [d for d in docs if d not in its]
