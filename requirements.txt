@@ -1,0 +1,10 @@
+mcp==2.2.0
+anthropic==2.1.0
+fastapi==0.146.0
+uvicorn==0.53.0
+httpx==0.28.1
+opentelemetry-sdk==1.45.1
+numpy==2.5.3
+PyYAML==6.0.3
+pytest==9.1.1
+ruff==0.14.3

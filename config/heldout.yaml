@@ -1,0 +1,51 @@
+# World H1, the held-out client. Written before any held-out run; run once (python -m cofa.eval.cli heldout).
+# A second engagement: an Austrian building-services wholesaler with more Swiss and Austrian customers. The
+# platform meets things dev never showed it:
+# - advice layouts it was not built on: a Swiss CSV export (semicolons, 1'234.50) and English prose without
+#   amounts per invoice;
+# - replies to dunning letters phrased differently ("Reklamation", "nächster Zahllauf");
+# - more groups paying for their subsidiaries, more payments without a reference, more typos;
+# - advices that come up to two bank days after the money, and more mails with instructions for an AI.
+name: H1
+seed: h1-hofer
+company: {name: Hofer Haustechnik Großhandel GmbH, city: Linz, iban: AT611904300234573201}
+start: "2026-09-07"
+bank_days: 22
+customers: 150
+countries: {DE: 0.45, AT: 0.4, CH: 0.15}
+parents: 0.15
+history_days: 75
+invoices_per_customer: [2, 14]
+net_amount_eur: [40, 18000]
+credit_note_share: 0.06
+terms: {skonto_customers: 0.6, skonto_pct: 3.0, skonto_days: 14, net_days: 30}
+
+payments:
+  exact_single: 0.28
+  multi_reference: 0.10
+  remittance_advice: 0.16
+  skonto: 0.14
+  late_skonto: 0.04
+  short_payment: 0.05
+  typo_reference: 0.07
+  po_reference_only: 0.04
+  no_reference: 0.07
+  parent_payer: 0.04
+  duplicate: 0.02
+  new_iban_name_variant: 0.03
+pay_rate: 0.85
+advice_late_share: 0.35
+advice_late_days: 2
+advice_layouts: [table_de, table_en, inline_de, sap_export, swiss_csv, prose_en]
+reply_styles: [standard, varied]
+injection_share: 0.10
+
+collections:
+  dunning_day: 15
+  situations:
+    paid_unapplied: 0.0
+    dispute: 0.14
+    promise_to_pay: 0.25
+    invoice_copy: 0.07
+    claims_paid_not_true: 0.06
+    no_reply: 0.48

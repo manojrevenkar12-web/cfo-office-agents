@@ -1,0 +1,17 @@
+[project]
+name = "cfo-office-agents"
+version = "0.1.0"
+description = "Claude agents for accounts receivable over MCP: cash application and collections on one platform, with evals and tracing."
+requires-python = ">=3.11"
+
+[tool.ruff]
+line-length = 140
+target-version = "py311"
+extend-exclude = ["web"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501", "B905"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

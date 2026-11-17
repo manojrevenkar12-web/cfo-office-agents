@@ -1,0 +1,11 @@
+services:
+  console:
+    build: .
+    ports: ["8080:8080"]
+    environment:
+      COFA_FULL: "0"
+      # ANTHROPIC_API_KEY: set it and reader: claude in config/product.yaml to read with Claude
+    volumes: ["cofa-data:/data"]
+    tmpfs: ["/tmp"]
+volumes:
+  cofa-data:

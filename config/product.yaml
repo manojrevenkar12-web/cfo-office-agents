@@ -1,0 +1,19 @@
+# The platform's and the engagements' settings. Never read by cofa/world.
+reader: rules                        # rules (offline) or claude
+claude: {model: claude-sonnet-5-5, max_tokens: 1200}
+cash_application:
+  wait_for_advice_days: 1            # bank days a payment that announces an advice waits for the mail
+  skonto_tolerance_cents: 1          # rounding per line when checking a cash discount
+  max_subset: 3                      # largest number of open items combined to explain a payment without reference
+  typo_distance: 1                   # a reference one edit away from an open item may match, only with the exact amount
+collections:
+  dunning_bank_day: 15               # the console's demo runs dunning on this bank day of the period
+  min_days_overdue: 1
+  dunning_level: 1
+review_minutes:                      # what a person spends, for the business case
+  accept_proposal: 1.5               # the proposal is right: check and accept
+  investigate: 6.0                   # no usable proposal: find the items by hand
+  undo_wrong_posting: 20.0           # a wrong automatic posting found later: reverse, re-post, tell the customer
+  reply_triage: 3.0                  # read a reply to a dunning letter and act on it
+  send_draft: 0.5                    # check a drafted reply and send it
+clerk_cost_eur_per_hour: 48

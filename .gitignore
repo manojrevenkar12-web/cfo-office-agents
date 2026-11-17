@@ -1,0 +1,8 @@
+work/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+reports/quick.json
+web/node_modules
+web/dist
