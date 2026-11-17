@@ -71,8 +71,8 @@ def render() -> str:
     if held:
         hpass = sum(x["pass"] for x in held["gate"])
         hr = held["readers"]
-        held_text = (f"The held-out client (`config/heldout.yaml`, {held['company']}) was written before it was run, and run once "
-                     f"with the code dev ended on. It brought advice layouts, reply phrasings and payment patterns the platform "
+        held_text = (f"The held-out client (`config/heldout.yaml`, {held['company']}) was written before it was run, and run with "
+                     f"the code dev ended on (an earlier attempt stopped on an exception; both are in the lock file). It brought advice layouts, reply phrasings and payment patterns the platform "
                      f"was not built on. It passed {hpass} of {len(held['gate'])} gate lines. The reader got "
                      f"{pct(hr['advice_exact_share'])} of advices and {pct(hr['reply_intent_share'])} of reply intents right, against "
                      f"{pct(rd['advice_exact_share'])} and {pct(rd['reply_intent_share'])} on dev. "

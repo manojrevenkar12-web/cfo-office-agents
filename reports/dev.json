@@ -127,19 +127,19 @@
     "post": 364
    },
    "tool_calls": 1042,
-   "seconds": 4.1,
+   "seconds": 4.2,
    "traces": {
     "cash": {
      "decisions": 566,
-     "median_ms": 1.336,
-     "p95_ms": 3.326,
+     "median_ms": 1.272,
+     "p95_ms": 2.85,
      "tool_calls_per_decision": 0.89,
      "tokens_per_decision": 0.0
     },
     "replies": {
      "decisions": 142,
-     "median_ms": 1.262,
-     "p95_ms": 1.747,
+     "median_ms": 1.465,
+     "p95_ms": 2.092,
      "tool_calls_per_decision": 0.0,
      "tokens_per_decision": 0.0
     }
@@ -247,19 +247,19 @@
     "post": 565
    },
    "tool_calls": 2009,
-   "seconds": 5.8,
+   "seconds": 6.0,
    "traces": {
     "cash": {
      "decisions": 594,
-     "median_ms": 1.568,
-     "p95_ms": 10.112,
+     "median_ms": 1.605,
+     "p95_ms": 10.04,
      "tool_calls_per_decision": 2.18,
      "tokens_per_decision": 0.0
     },
     "replies": {
      "decisions": 70,
-     "median_ms": 1.318,
-     "p95_ms": 2.093,
+     "median_ms": 1.53,
+     "p95_ms": 2.007,
      "tool_calls_per_decision": 0.0,
      "tokens_per_decision": 0.0
     }
@@ -360,19 +360,19 @@
     "post": 544
    },
    "tool_calls": 4519,
-   "seconds": 9.5,
+   "seconds": 9.4,
    "traces": {
     "cash": {
      "decisions": 595,
-     "median_ms": 6.849,
-     "p95_ms": 16.458,
+     "median_ms": 6.57,
+     "p95_ms": 16.676,
      "tool_calls_per_decision": 5.97,
      "tokens_per_decision": 0.0
     },
     "replies": {
      "decisions": 47,
-     "median_ms": 11.602,
-     "p95_ms": 19.271,
+     "median_ms": 11.962,
+     "p95_ms": 19.089,
      "tool_calls_per_decision": 5.51,
      "tokens_per_decision": 0.0
     }

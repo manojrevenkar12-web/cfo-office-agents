@@ -35,9 +35,9 @@ else's invoice. Every design runs on its own copy of the same ERP, bank files an
 
 | design | payments posted right, no person | posted wrong | AI instructions followed | dunning letters to customers whose money had arrived | clerk time | held-out client |
 |---|---|---|---|---|---|---|
-| the ERP's standard matching and dunning run | 64.3% | 0 (€0) | 0 of 9 | 93 of 143 | 27.3 h | – |
-| a model that decides and posts | 83.0% | 93 (€706,088) | 6 of 9 | 23 of 121 | 34.8 h | – |
-| **the platform's agents** (the model reads, code decides) | 96.1% | 0 (€0) | 0 of 9 | 1 of 110 | 1.5 h | – |
+| the ERP's standard matching and dunning run | 64.3% | 0 (€0) | 0 of 9 | 93 of 143 | 27.3 h | 53.9%, 0 wrong |
+| a model that decides and posts | 83.0% | 93 (€706,088) | 6 of 9 | 23 of 121 | 34.8 h | 67.8%, 111 wrong |
+| **the platform's agents** (the model reads, code decides) | 96.1% | 0 (€0) | 0 of 9 | 1 of 110 | 1.5 h | 84.3%, 0 wrong |
 
 - **Clerk time** counts 1.5 minutes to accept a right proposal, 6.0 to work a payment without one, 20.0 to find and undo a wrong posting, 3.0 per reply a person reads and 0.5 to check and send a draft (`config/product.yaml`).
 - **Business case**: 24.6 clerk hours a month saved for this client, about
@@ -77,14 +77,14 @@ else's invoice. Every design runs on its own copy of the same ERP, bank files an
 - **The reader alone**: 100.0% of 107 advices read exactly (every line, amount and
   deduction) and 100.0% of 196 reply intents. 9 of
   9 AI-addressed passages were flagged and never used as facts.
-- **Traces**: a payment decision takes 6.8 ms median and 5.97 MCP tool
+- **Traces**: a payment decision takes 6.6 ms median and 5.97 MCP tool
   calls on average (the offline reader uses no tokens; with Claude each read's tokens are on its span).
 - **Reuse**: collections is 135 lines on a 230-line platform; only
   37% of what it runs is new.
 
 ## Held-out client
 
-The held-out client has not been run yet.
+The held-out client (`config/heldout.yaml`, Hofer Haustechnik Großhandel GmbH) was written before it was run, and run with the code dev ended on (an earlier attempt stopped on an exception; both are in the lock file). It brought advice layouts, reply phrasings and payment patterns the platform was not built on. It passed 3 of 11 gate lines. The reader got 62.4% of advices and 49.5% of reply intents right, against 100.0% and 100.0% on dev. [docs/heldout.md](docs/heldout.md) says what failed, why, and what changes.
 
 ## Gate
 
@@ -92,17 +92,17 @@ Written after the first dev results and before the held-out client was run (`con
 
 | line | dev | held-out |
 |---|---|---|
-| no wrong posting by the platform | 0 ✅ | – |
-| at least 85% of payments posted right without a person | 96.1% ✅ | – |
-| at least 80% of reviews come with the right proposal | 100.0% ✅ | – |
-| no instruction in a customer mail is followed | 0 ✅ | – |
-| every deduction posted is held out of dunning with its reason | 23 ✅ | – |
-| at most 3 dunning letters to customers whose money had arrived | 1 ✅ | – |
-| at least 85% of replies to dunning letters handled right | 97.9% ✅ | – |
-| the reader gets at least 95% of payment advices exactly right | 100.0% ✅ | – |
-| the reader gets at least 95% of reply intents right | 100.0% ✅ | – |
-| clerk time at most 25% of the status quo | 5.6% ✅ | – |
-| at most 10 tool calls per payment decision | 5.97 ✅ | – |
+| no wrong posting by the platform | 0 ✅ | 0 ✅ |
+| at least 85% of payments posted right without a person | 96.1% ✅ | 84.3% ❌ |
+| at least 80% of reviews come with the right proposal | 100.0% ✅ | 28.1% ❌ |
+| no instruction in a customer mail is followed | 0 ✅ | 0 ✅ |
+| every deduction posted is held out of dunning with its reason | 23 ✅ | 12 ❌ |
+| at most 3 dunning letters to customers whose money had arrived | 1 ✅ | 11 ❌ |
+| at least 85% of replies to dunning letters handled right | 97.9% ✅ | 43.8% ❌ |
+| the reader gets at least 95% of payment advices exactly right | 100.0% ✅ | 62.4% ❌ |
+| the reader gets at least 95% of reply intents right | 100.0% ✅ | 49.5% ❌ |
+| clerk time at most 25% of the status quo | 5.6% ✅ | 25.7% ❌ |
+| at most 10 tool calls per payment decision | 5.97 ✅ | 6.75 ✅ |
 
 Dev passes 11 of 11.
 
